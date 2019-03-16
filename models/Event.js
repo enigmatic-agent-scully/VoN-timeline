@@ -32,7 +32,7 @@ const EventSchema = new Schema({
     required: false
   },
   description: { type: String, required: true },
-  imgURL: { type: String, required: true }
+  imgURL: { type: String, required: false }
 });
 
 const Event = mongoose.model('Event', EventSchema);
