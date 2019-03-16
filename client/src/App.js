@@ -4,6 +4,8 @@ import './App.css';
 
 class App extends Component {
   render() {
+    getEvents = () => {};
+
     return (
       <div className='container'>
         <EventCard />
