@@ -1,0 +1,31 @@
+{
+  "name": "von-timeline",
+  "version": "1.0.0",
+  "description": "This is a draft of a custom timeline for Voices of Note, the Atlanta Gay Men's Chorus, and the Atlanta Women's Chorus",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enigmatic-agent-scully/VoN-timeline.git"
+  },
+  "author": "aj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enigmatic-agent-scully/VoN-timeline/issues"
+  },
+  "homepage": "https://github.com/enigmatic-agent-scully/VoN-timeline#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.3",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.4.19",
+    "passport": "^0.4.0",
+    "path": "^0.12.7"
+  }
+}
