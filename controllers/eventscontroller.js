@@ -1,6 +1,6 @@
 const db = require('../models/');
 
-const EventController = module.exports = {
+const EventController = {
   findAll = (req, res) => {
     db.Event.find({})
     .sort({primaryDate: 1})

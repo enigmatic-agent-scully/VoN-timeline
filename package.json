@@ -4,8 +4,13 @@
   "description": "This is a draft of a custom timeline for Voices of Note, the Atlanta Gay Men's Chorus, and the Atlanta Women's Chorus",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js && npm run client",
+    "start:dev": "nodemon server.js | npm run client",
+    "client": "cd client && npm run start",
+    "seed": "node seed/seedDB.js",
+    "install": "cd client && npm install",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "repository": {
     "type": "git",
