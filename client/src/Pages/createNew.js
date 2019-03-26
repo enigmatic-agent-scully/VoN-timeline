@@ -17,9 +17,14 @@ class CreateNew extends Component {
       location: '',
       concertSeason: '',
       description: '',
-      imageURL: ''
+      imgURL:
+        'https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png'
       // currentUser: []
     };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
 
     this.reactS3config = {
       bucketName: 'voicesofnotetimeline',
@@ -27,10 +32,15 @@ class CreateNew extends Component {
       accessKeyId: config.awsKey,
       secretAccessKey: config.awsSecret
     };
+  }
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleUpload = this.handleUpload.bind(this);
+  handleUpload(event) {
+    const imageFile = event.target.files[0];
+    uploadFile(imageFile, this.reactS3config)
+      .then(data => {
+        this.setState({ imgURL: data.location });
+      })
+      .catch(err => console.log(err));
   }
 
   handleInputChange(event) {
@@ -55,18 +65,9 @@ class CreateNew extends Component {
       location: eventInfo.location,
       concertSeason: eventInfo.concertSeason,
       description: eventInfo.description,
-      imgURL: eventInfo.imageURL
+      imgURL: eventInfo.imgURL
       // createdBy: eventInfo.currentUser[0]
     });
-  }
-
-  handleUpload(event) {
-    const imageFile = event.target.files[0];
-    uploadFile(imageFile, this.reactS3config)
-      .then(data => {
-        this.setState({ imageURL: data.location });
-      })
-      .catch(err => console.log(err));
   }
 
   render() {
@@ -80,6 +81,9 @@ class CreateNew extends Component {
           primaryDate={this.state.primaryDate}
           secondaryDate={this.state.secondaryDate}
           tertiaryDate={this.state.tertiaryDate}
+          imgURL={this.state.imgURL}
+          concertSeason={this.state.concertSeason}
+          descriptopn={this.state.description}
           handleInputChange={this.handleInputChange}
           handleSubmit={this.handleSubmit}
           handleUpload={this.handleUpload}

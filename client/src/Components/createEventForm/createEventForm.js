@@ -13,14 +13,17 @@ const CreateEventForm = props => {
               id='type'
               name='type'
               className='pure-input-1-2'
+              onChange={props.handleInputChange}
+              value={props.type}
             >
+              <option value='No Type Specified'>-Select Event Type-</option>
               <option value='Holiday Concert'>Holiday Concert</option>
               <option value='Spring Concert'>Spring Concert</option>
               <option value='Special Event'>Special Event</option>
               <option value='Pride Concert'>Pride Concert</option>
               <option value='Fundraiser'>Fundraiser</option>
               <option value='Recording Released'>Recording Released</option>
-              <option value='Other Milestone'>Other Milestone</option>
+              <option value='Milestone Event'>Milestone Event</option>
             </select>
           </div>
           <div className='pure-control-group'>
@@ -41,7 +44,6 @@ const CreateEventForm = props => {
               id='director'
               name='director'
               type='textarea'
-              required
             />
           </div>
           <div className='pure-control-group'>

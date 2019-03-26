@@ -12,7 +12,7 @@ const EventSchema = new Schema({
   },
   director: {
     type: String,
-    required: true
+    required: false
   },
   primaryDate: {
     type: Date,

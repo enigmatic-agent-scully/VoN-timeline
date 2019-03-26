@@ -34,7 +34,7 @@ class TimelineEvent extends Component {
       location,
       concertSeason,
       description,
-      imageURL
+      imgURL
     } = this.props;
 
     const { visible } = this.state;
@@ -70,11 +70,7 @@ class TimelineEvent extends Component {
               }`}
             >
               <div className='imageBlock'>
-                <img
-                  className='responsive eventImg'
-                  src={imageURL}
-                  alt={name}
-                />
+                <img className='responsive eventImg' src={imgURL} alt={name} />
               </div>
               <h3 className='vertical-timeline-element-title'>{name}</h3>
               <h4 className='vertical-timeline-element-subtitle'>
@@ -115,7 +111,7 @@ TimelineEvent.propTypes = {
   location: PropTypes.string,
   concertSeason: PropTypes.string,
   description: PropTypes.string,
-  imageURL: PropTypes.string
+  imgURL: PropTypes.string
 };
 
 TimelineEvent.defaultProps = {
@@ -135,8 +131,7 @@ TimelineEvent.defaultProps = {
   location: '',
   concertSeason: '',
   description: '',
-  imageURL:
-    'https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png'
+  imgURL: ''
 };
 
 export default TimelineEvent;
