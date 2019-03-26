@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const EventSchema = new Schema({
   type: {
     type: String,
-    required: true
+    required: false
   },
   name: {
     type: String,
@@ -26,15 +26,25 @@ const EventSchema = new Schema({
     type: Date,
     required: false
   },
-  location: { type: String, required: true },
+  location: {
+    type: String,
+    required: true
+  },
   concertSeason: {
-    type: Number,
+    type: String,
     required: false
   },
-  description: { type: String, required: true },
-  imgURL: { type: String, required: false }
+  description: {
+    type: String,
+    required: true
+  },
+  imgURL: {
+    type: String,
+    required: false
+  }
+  // createdBy: { type: Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
 const Event = mongoose.model('Event', EventSchema);
 
-export default Event;
+module.exports = Event;

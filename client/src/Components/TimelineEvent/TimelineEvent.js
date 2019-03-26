@@ -133,7 +133,7 @@ TimelineEvent.defaultProps = {
   name: '',
   director: '',
   location: '',
-  concertSeason: null,
+  concertSeason: '',
   description: '',
   imageURL:
     'https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png'

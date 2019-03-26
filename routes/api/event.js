@@ -1,14 +1,15 @@
 const router = require('express').Router();
-const eventsController = require('../../controllers/eventscontroller');
+const EventController = require('../../controllers/eventscontroller');
 
-router.route('/').get(eventsController.findAll);
-
-router.route('/new').post(eventsController.createEvent);
+router
+  .route('/')
+  .get(EventController.findAll)
+  .post(EventController.createEvent);
 
 router
   .route('/:id')
-  .get(eventsController.findById)
-  .put(eventsController.updateEvent)
-  .delete(eventsController.deleteEvents);
+  .get(EventController.findById)
+  .put(EventController.updateEvent)
+  .delete(EventController.removeEvent);
 
 module.exports = router;

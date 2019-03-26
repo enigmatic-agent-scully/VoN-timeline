@@ -2,7 +2,7 @@
 // var router = require('express').Router();
 const db = require('./../models');
 
-const UserControllers = (module.exports = {
+const UserController = {
   findById: (req, res) => {
     console.log(req.params.id);
     db.User.findById(req.params.id)
@@ -117,6 +117,6 @@ const UserControllers = (module.exports = {
   //       res.status(422).json(err);
   //     });
   // }
-});
+};
 
-export default UserControllers;
+module.exports = UserController;

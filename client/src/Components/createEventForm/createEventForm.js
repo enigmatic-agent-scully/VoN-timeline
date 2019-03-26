@@ -8,14 +8,19 @@ const CreateEventForm = props => {
         <fieldset>
           <div className='pure-control-group'>
             <label htmlFor='type'>Type of Event</label>
-            <select id='type' className='pure-input-1-2'>
-              <option>Holiday Concert</option>
-              <option>Spring Concert</option>
-              <option>Special Event</option>
-              <option>Pride Concert</option>
-              <option>Fundraiser</option>
-              <option>Recording Released</option>
-              <option>Other Milestone</option>
+            <select
+              type='select'
+              id='type'
+              name='type'
+              className='pure-input-1-2'
+            >
+              <option value='Holiday Concert'>Holiday Concert</option>
+              <option value='Spring Concert'>Spring Concert</option>
+              <option value='Special Event'>Special Event</option>
+              <option value='Pride Concert'>Pride Concert</option>
+              <option value='Fundraiser'>Fundraiser</option>
+              <option value='Recording Released'>Recording Released</option>
+              <option value='Other Milestone'>Other Milestone</option>
             </select>
           </div>
           <div className='pure-control-group'>
@@ -23,6 +28,7 @@ const CreateEventForm = props => {
             <input
               onChange={props.handleInputChange}
               value={props.name}
+              name='name'
               id='name'
               type='textarea'
             />
@@ -33,6 +39,7 @@ const CreateEventForm = props => {
               onChange={props.handleInputChange}
               value={props.director}
               id='director'
+              name='director'
               type='textarea'
               required
             />
@@ -74,6 +81,7 @@ const CreateEventForm = props => {
               onChange={props.handleInputChange}
               value={props.location}
               id='location'
+              name='location'
               type='textarea'
               required
             />
@@ -84,6 +92,7 @@ const CreateEventForm = props => {
               onChange={props.handleInputChange}
               value={props.concertSeason}
               id='concertSeason'
+              name='concertSeason'
               type='textarea'
             />
           </div>
@@ -93,6 +102,7 @@ const CreateEventForm = props => {
               onChange={props.handleInputChange}
               value={props.description}
               id='description'
+              name='description'
               type='textarea'
               required
             />

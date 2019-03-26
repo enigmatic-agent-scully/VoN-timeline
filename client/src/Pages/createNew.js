@@ -17,8 +17,8 @@ class CreateNew extends Component {
       location: '',
       concertSeason: '',
       description: '',
-      imageURL: '',
-      currentUser: []
+      imageURL: ''
+      // currentUser: []
     };
 
     this.reactS3config = {
@@ -44,6 +44,7 @@ class CreateNew extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const eventInfo = this.state;
+    console.log(this.state);
     API.postEvent({
       type: eventInfo.type,
       name: eventInfo.name,
@@ -54,7 +55,8 @@ class CreateNew extends Component {
       location: eventInfo.location,
       concertSeason: eventInfo.concertSeason,
       description: eventInfo.description,
-      imageURL: eventInfo.imageURL
+      imgURL: eventInfo.imageURL
+      // createdBy: eventInfo.currentUser[0]
     });
   }
 
