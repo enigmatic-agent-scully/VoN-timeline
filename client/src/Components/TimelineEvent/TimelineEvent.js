@@ -70,15 +70,26 @@ class TimelineEvent extends Component {
               }`}
             >
               <div className='imageBlock'>
-                <img className='responsive eventImg' src={imgURL} alt={name} />
+                <img
+                  className='responsive eventImg'
+                  src={
+                    !imgURL
+                      ? 'https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png'
+                      : imgURL
+                  }
+                  alt={name}
+                />
               </div>
               <h3 className='vertical-timeline-element-title'>{name}</h3>
-              <h4 className='vertical-timeline-element-subtitle'>
-                Directed by {director}
-              </h4>
+              {!director ? (
+                <h4 className='vertical-timeline-element-subtitle'>
+                  Directed by {director}
+                </h4>
+              ) : null}
+
               <p>{description}</p>
               <p>
-                {type} {location} {concertSeason}
+                {type} at {location}, {concertSeason}
               </p>
               <span className='vertical-timeline-element-primaryDate'>
                 {primaryDate}
@@ -102,7 +113,7 @@ TimelineEvent.propTypes = {
   iconStyle: PropTypes.shape({}),
   iconOnClick: PropTypes.func,
   style: PropTypes.shape({}),
-  primaryDate: PropTypes.node,
+  primaryDate: PropTypes.string,
   position: PropTypes.string,
   visibilitySensorProps: PropTypes.shape({}),
   type: PropTypes.string,

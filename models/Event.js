@@ -15,15 +15,15 @@ const EventSchema = new Schema({
     required: false
   },
   primaryDate: {
-    type: Date,
+    type: String,
     required: true
   },
   secondaryDate: {
-    type: Date,
+    type: String,
     required: false
   },
   tertiaryDate: {
-    type: Date,
+    type: String,
     required: false
   },
   location: {

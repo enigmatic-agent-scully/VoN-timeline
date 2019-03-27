@@ -3,6 +3,8 @@ import API from './../utils/API';
 import CreateEventForm from './../Components/createEventForm/createEventForm';
 import { uploadFile } from 'react-s3';
 import config from './../config/awsS3config';
+import Wrapper from './../Wrapper/Wrapper';
+var moment = require('moment');
 
 class CreateNew extends Component {
   constructor(props) {
@@ -17,14 +19,14 @@ class CreateNew extends Component {
       location: '',
       concertSeason: '',
       description: '',
-      imgURL:
-        'https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png'
+      imgURL: ''
       // currentUser: []
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+    this.formatDates = this.formatDates.bind(this);
 
     this.reactS3config = {
       bucketName: 'voicesofnotetimeline',
@@ -43,6 +45,31 @@ class CreateNew extends Component {
       .catch(err => console.log(err));
   }
 
+  formatDates() {
+    const origFormat = 'YYYY-MM-DDTHH:mm:ss';
+    const newDateFormat = 'MMMM DD, YYYY';
+    const primeDateFormatted = moment(
+      this.state.primaryDate,
+      origFormat
+    ).format(newDateFormat);
+    if (this.state.secondaryDate) {
+      const secondDateFormatted = moment(
+        this.state.secondaryDate,
+        origFormat
+      ).format('DD');
+      const thirdDateFormatted = moment(
+        this.state.tertiaryDate,
+        origFormat
+      ).format('DD');
+      this.setState({
+        secondaryDate: secondDateFormatted,
+        tertiaryDate: thirdDateFormatted
+      });
+    }
+    this.setState({
+      primaryDate: primeDateFormatted
+    });
+  }
   handleInputChange(event) {
     const name = event.target.name;
     let value = event.target.value;
@@ -53,8 +80,8 @@ class CreateNew extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
     const eventInfo = this.state;
-    console.log(this.state);
     API.postEvent({
       type: eventInfo.type,
       name: eventInfo.name,
@@ -72,23 +99,25 @@ class CreateNew extends Component {
 
   render() {
     return (
-      <div className='createNew'>
-        <CreateEventForm
-          type={this.state.type}
-          name={this.state.name}
-          director={this.state.director}
-          location={this.state.location}
-          primaryDate={this.state.primaryDate}
-          secondaryDate={this.state.secondaryDate}
-          tertiaryDate={this.state.tertiaryDate}
-          imgURL={this.state.imgURL}
-          concertSeason={this.state.concertSeason}
-          descriptopn={this.state.description}
-          handleInputChange={this.handleInputChange}
-          handleSubmit={this.handleSubmit}
-          handleUpload={this.handleUpload}
-        />
-      </div>
+      <Wrapper>
+        <div className='createNew'>
+          <CreateEventForm
+            type={this.state.type}
+            name={this.state.name}
+            director={this.state.director}
+            location={this.state.location}
+            primaryDate={this.state.primaryDate}
+            secondaryDate={this.state.secondaryDate}
+            tertiaryDate={this.state.tertiaryDate}
+            imgURL={this.state.imgURL}
+            concertSeason={this.state.concertSeason}
+            descriptopn={this.state.description}
+            handleInputChange={this.handleInputChange}
+            handleSubmit={this.handleSubmit}
+            handleUpload={this.handleUpload}
+          />
+        </div>
+      </Wrapper>
     );
   }
 }
