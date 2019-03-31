@@ -1,6 +1,14 @@
 .pure-menu-horizontal {
   text-align: center !important;
+  font-weight: 400;
+  font-size: 24px;
 }
 #ticketsButton {
   background-color: #85c03f;
+  color: white;
+}
+
+#ticketsButton:hover {
+  background-color: #63c1cc;
+  box-shadow: darkgray;
 }

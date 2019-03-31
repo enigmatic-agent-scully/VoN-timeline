@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './style.css';
-const vonLogo = require('./../Imgs/von-logo.svg');
-const AGMClogo = require('./../Imgs/agmc-logo.svg');
-const AWClogo = require('./../Imgs/awc-logo.svg');
+const vonLogo = require('./../assets/Imgs/von-logo.svg');
+const AGMClogo = require('./../assets/Imgs/agmc-logo.svg');
+const AWClogo = require('./../assets/Imgs/awc-logo.svg');
 
 class Wrapper extends Component {
   constructor(props) {
