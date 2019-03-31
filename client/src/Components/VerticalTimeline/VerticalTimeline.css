@@ -31,18 +31,20 @@
   }
   .vertical-timeline.vertical-timeline--two-columns:before {
     left: 50%;
-    margin-left: -2px;
+    margin-left: -4px;
+  }
+  .vertical-timeline::before {
+    /* this is the vertical line */
+    content: '';
+    position: absolute;
+    top: 195px;
+    left: 18px;
+    height: 100%;
+    width: 4px;
+    background: #63c1cc;
   }
 }
 
 .vertical-timeline-element-content {
   color: black;
-}
-
-.vertical-timeline-element--work .vertical-timeline-element-content {
-  border-top: 3px solid #2196f3;
-}
-
-.vertical-timeline-element--education .vertical-timeline-element-content {
-  border-top: 3px solid #e91e63;
 }

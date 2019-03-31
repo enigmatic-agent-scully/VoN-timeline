@@ -1,14 +1,103 @@
 .pure-menu-horizontal {
-  text-align: center !important;
   font-weight: 400;
   font-size: 24px;
 }
+
+.logo-div img.pure-img {
+  padding: 40px 20px;
+}
+
+.logo-div {
+  float: left;
+}
+
+.custom-menu {
+  float: right;
+  margin-top: 75px;
+  margin-bottom: 10px;
+}
+
+.pure-menu-heading.pure-menu-link {
+  padding: 0px !important;
+}
+
 #ticketsButton {
   background-color: #85c03f;
   color: white;
+  position: relative;
+  transition: all 0.25s linear;
 }
 
 #ticketsButton:hover {
   background-color: #63c1cc;
-  box-shadow: darkgray;
+  box-shadow: 0px 1px 5px #888888;
+  top: -1px;
+}
+
+.pure-menu-link:hover {
+  background-color: white;
+  color: #63c1cc;
+  transition: all 0.25s linear;
+}
+
+.pure-menu-children .pure-menu-item a.pure-menu-link {
+  display: block;
+  padding: 15px 10px;
+  background-color: #fff;
+  color: #333;
+  text-align: left;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0px;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0px 1px 2px #999;
+}
+
+.pure-menu-children .pure-menu-item a.pure-menu-link:hover {
+  display: block;
+  padding: 15px 10px;
+  color: #fff;
+  font-size: 16px;
+  text-align: left;
+  font-weight: normal;
+  background-color: #f3822f;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0px 1px 2px #999;
+}
+
+.colorbar {
+  height: 10px;
+  width: 100%;
+  float: left;
+  background-color: #6a4192;
+}
+
+.redbar {
+  height: 10px;
+  float: left;
+  width: 20%;
+  background-color: #8f2529;
+}
+
+.goldbar {
+  height: 10px;
+  float: left;
+  width: 15%;
+  background-color: #f6b03d;
+}
+
+.bluebar {
+  height: 10px;
+  float: left;
+  width: 45%;
+  background-color: #63c1cc;
+}
+
+@media only screen and (max-width: 1170px) {
+  .logo-div,
+  .custom-menu {
+    text-align: center !important;
+    float: none;
+    margin-top: 0px !important;
+  }
 }

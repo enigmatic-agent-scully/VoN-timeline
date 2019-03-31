@@ -31,24 +31,24 @@ class MainTimeline extends Component {
   render() {
     return (
       <div className='MainContainer'>
-        <Wrapper>
-          <VerticalTimeline layout='2-columns'>
-            {this.state.eventsArray.map(event => (
-              <TimelineEvent
-                primaryDate={event.primaryDate}
-                icon={<NewReleases />}
-                name={event.name}
-                type={event.type}
-                description={event.description}
-                location={event.location}
-                director={event.director}
-                concertSeason={event.concertSeason}
-                imgURL={event.imgURL}
-                key={event._id}
-              />
-            ))}
-          </VerticalTimeline>
-        </Wrapper>
+        <Wrapper />
+        <VerticalTimeline layout='2-columns'>
+          {this.state.eventsArray.map(event => (
+            <TimelineEvent
+              primaryDate={event.primaryDate}
+              icon={<NewReleases />}
+              iconStyle={{ background: 'white', color: 'black' }}
+              name={event.name}
+              type={event.type}
+              description={event.description}
+              location={event.location}
+              director={event.director}
+              concertSeason={event.concertSeason}
+              imgURL={event.imgURL}
+              key={event._id}
+            />
+          ))}
+        </VerticalTimeline>
       </div>
     );
   }

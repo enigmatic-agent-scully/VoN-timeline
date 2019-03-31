@@ -13,7 +13,6 @@ This project and this readme.md are works in progress.
 - [react](https://www.npmjs.com/package/react)
 - [create-react-app](https://www.npmjs.com/package/create-react-app)
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
-- React Visibility Sensor
 - [react-visibility-sensor](https://www.npmjs.com/package/react-visibility-sensor)
 - [typescript](https://www.npmjs.com/package/typescript)
 
@@ -26,8 +25,7 @@ Special shoutout to [Stephane Monnot](https://stephanemonnot.com/) for his [Reac
 - [connect-mongo](https://www.npmjs.com/package/connect-mongo)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [express](https://www.npmjs.com/package/express)
-- [express-flash](https://www.npmjs.com/package/)
-- [](https://www.npmjs.com/package/express-flash)
+- [express-flash](https://www.npmjs.com/package/express-flash)
 - [express-session](https://www.npmjs.com/package/express-session)
 - [if-env](https://www.npmjs.com/package/if-env)
 - [mongoose](https://www.npmjs.com/package/mongoose)
