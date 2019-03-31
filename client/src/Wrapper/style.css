@@ -17,6 +17,24 @@
   margin-bottom: 10px;
 }
 
+.small-header-bar {
+  background-color: #333333;
+  padding: 10px 0px 0px;
+  line-height: 1em;
+  color: #808080;
+  font-size: 14px;
+  float: left;
+  width: 100%;
+}
+
+.donate-button {
+  float: right;
+  background-color: #8f2529;
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
 .pure-menu-heading.pure-menu-link {
   padding: 0px !important;
 }
