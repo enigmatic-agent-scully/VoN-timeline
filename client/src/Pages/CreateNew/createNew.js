@@ -94,7 +94,20 @@ class CreateNew extends Component {
       description: eventInfo.description,
       imgURL: eventInfo.imgURL
       // createdBy: eventInfo.currentUser[0]
-    });
+    }).then(
+      this.setState({
+        type: '',
+        name: '',
+        director: '',
+        primaryDate: '',
+        secondaryDate: '',
+        tertiaryDate: '',
+        location: '',
+        concertSeason: '',
+        description: '',
+        imgURL: ''
+      })
+    );
   }
 
   render() {
