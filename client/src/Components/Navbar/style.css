@@ -8,10 +8,12 @@
 }
 
 .logo-div {
+  margin-left: 1.5em;
   float: left;
 }
 
 .custom-menu {
+  margin-right: 1.5em;
   float: right;
   margin-top: 75px;
   margin-bottom: 10px;

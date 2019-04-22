@@ -16,6 +16,9 @@ export default {
     return axios.post('/api/events', eventData);
   },
 
+  editEvent: (id, eventData) => {
+    return axios.put(`/api/events/${id}`, eventData);
+  },
   // Change the status of event
 
   deleteEvent: id => {

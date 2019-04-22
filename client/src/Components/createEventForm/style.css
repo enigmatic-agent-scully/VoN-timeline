@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'ralewayregular';
+  src: url('./../../assets/fonts/raleway-regular-webfont.woff2') format('woff2'),
+    url('./../../assets/fonts/raleway-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 [type='date'] {
   background: #fff
     url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
@@ -12,4 +20,26 @@
 
 .pure-g {
   letter-spacing: 0em !important;
+  font-family: 'ralewayregular', sans-serif !important;
+}
+
+.createEventForm {
+  display: flex;
+  justify-content: center;
+}
+
+.pure-form input[type='textarea'] {
+  width: 200px;
+}
+
+input#primaryDate,
+input#secondaryDate,
+input#tertiaryDate,
+select#type {
+  padding: 3px 5px;
+  margin-right: 0px !important;
+}
+
+input {
+  width: 200px;
 }

@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import API from './../utils/API';
 import VerticalTimeline from './../Components/VerticalTimeline/VerticalTimeline';
+
 import TimelineEvent from './../Components/TimelineEvent/TimelineEvent';
 import NewReleases from '@material-ui/icons/NewReleases';
-import Wrapper from './../Wrapper/Wrapper';
+import Navbar from './../Components/Navbar/Navbar';
 
 class MainTimeline extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      eventsArray: []
+      eventsArray: [],
+      isLoggedIn: true
     };
 
     this.loadEvents = this.loadEvents.bind(this);
@@ -31,10 +33,11 @@ class MainTimeline extends Component {
   render() {
     return (
       <div className='MainContainer'>
-        <Wrapper />
+        <Navbar />
         <VerticalTimeline layout='2-columns'>
           {this.state.eventsArray.map(event => (
             <TimelineEvent
+              isLoggedIn={this.state.isLoggedIn}
               primaryDate={event.primaryDate}
               icon={<NewReleases />}
               iconStyle={{ background: 'white', color: 'black' }}
@@ -46,6 +49,7 @@ class MainTimeline extends Component {
               concertSeason={event.concertSeason}
               imgURL={event.imgURL}
               key={event._id}
+              id={event._id}
             />
           ))}
         </VerticalTimeline>

@@ -3,7 +3,7 @@ import './style.css';
 
 const CreateEventForm = props => {
   return (
-    <div className='pure-g'>
+    <div className='pure-g createEventForm'>
       <form className='pure-form pure-form-aligned'>
         <fieldset>
           <div className='pure-control-group'>
@@ -46,7 +46,7 @@ const CreateEventForm = props => {
               type='textarea'
             />
           </div>
-          <div className='pure-control-group'>
+          <div className='pure-control-group dates'>
             <label htmlFor='primaryDate'>Primary Event Date</label>
             <input
               onChange={props.handleInputChange}
@@ -57,7 +57,7 @@ const CreateEventForm = props => {
               required
             />
           </div>
-          <div className='pure-control-group'>
+          <div className='pure-control-group dates'>
             <label htmlFor='secondaryDate'>Secondary Event Date</label>
             <input
               onChange={props.handleInputChange}
@@ -67,7 +67,7 @@ const CreateEventForm = props => {
               id='secondaryDate'
             />
           </div>
-          <div className='pure-control-group'>
+          <div className='pure-control-group dates'>
             <label htmlFor='tertiaryDate'>Tertiary Event Date</label>
             <input
               onChange={props.handleInputChange}

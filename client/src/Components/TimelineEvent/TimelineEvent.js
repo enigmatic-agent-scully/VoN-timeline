@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import API from './../../utils/API';
 import VisibilitySensor from 'react-visibility-sensor';
 
 class TimelineEvent extends Component {
   constructor(props) {
     super(props);
     this.onVisibilitySensorChange = this.onVisibilitySensorChange.bind(this);
+    this.editEvent = this.editEvent.bind(this);
     this.state = { visible: false };
   }
 
@@ -16,9 +18,16 @@ class TimelineEvent extends Component {
     }
   }
 
+  editEvent(eventId) {
+    API.getEvent(eventId).then(res =>
+      this.setState({ selectedEvent: res }, () => console.log(this.state))
+    );
+  }
+
   render() {
     const {
       id,
+      isLoggedIn,
       children,
       icon,
       iconStyle,
@@ -92,7 +101,18 @@ class TimelineEvent extends Component {
                 {type} at {location}, {concertSeason}
               </p>
               <span className='vertical-timeline-element-primaryDate'>
-                {primaryDate}
+                {primaryDate}{' '}
+                {isLoggedIn ? (
+                  <span id='editButton'>
+                    ||{' '}
+                    <i
+                      className='material-icons'
+                      onClick={() => this.editEvent(id)}
+                    >
+                      edit
+                    </i>
+                  </span>
+                ) : null}
               </span>
             </div>
           </div>

@@ -22,9 +22,6 @@
   margin-bottom: 0;
 }
 @media only screen and (min-width: 1170px) {
-  .vertical-timeline-element {
-    margin: 4em 0;
-  }
   .vertical-timeline-element:first-child {
     margin-top: 0;
   }
@@ -67,6 +64,8 @@
 /* Icon animations */
 .vertical-timeline-element-icon {
   /* Force Hardware Acceleration in WebKit */
+  transform: translateZ(0);
+  backface-visibility: hidden;
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
 }

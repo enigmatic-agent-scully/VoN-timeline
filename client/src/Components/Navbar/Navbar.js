@@ -1,10 +1,10 @@
 import React from 'react';
 import './style.css';
-const vonLogo = require('./../assets/Imgs/von-logo.svg');
-const AGMClogo = require('./../assets/Imgs/agmc-logo.svg');
-const AWClogo = require('./../assets/Imgs/awc-logo.svg');
+const vonLogo = require('./../../assets/Imgs/von-logo.svg');
+const AGMClogo = require('./../../assets/Imgs/agmc-logo.svg');
+const AWClogo = require('./../../assets/Imgs/awc-logo.svg');
 
-const Wrapper = () => {
+const Navbar = () => {
   return (
     <div className='VoN-Nav'>
       <div
@@ -157,12 +157,12 @@ const Wrapper = () => {
         </div>
       </div>
       <div className='colorbar'>
-        <div class='redbar'>&nbsp;</div>
-        <div class='goldbar'>&nbsp;</div>
-        <div class='bluebar'>&nbsp;</div>
+        <div className='redbar'>&nbsp;</div>
+        <div className='goldbar'>&nbsp;</div>
+        <div className='bluebar'>&nbsp;</div>
       </div>
     </div>
   );
 };
 
-export default Wrapper;
+export default Navbar;

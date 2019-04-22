@@ -1,12 +1,15 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
+const validateVONemail = val => {
+  return val.includes('voicesofnote.org');
+};
+
 const userSchema = mongoose.Schema({
-  firstName: { type: String },
-  lastName: { type: String },
-  userName: { type: String },
-  email: { type: String },
-  password: { type: String }
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  email: { type: String, validate: validateVONemail, required: true },
+  password: { type: String, required: true }
 });
 
 userSchema.methods.encryptPassword = function(password) {
