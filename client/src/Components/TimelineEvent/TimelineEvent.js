@@ -9,7 +9,7 @@ class TimelineEvent extends Component {
     super(props);
     this.onVisibilitySensorChange = this.onVisibilitySensorChange.bind(this);
     this.editEvent = this.editEvent.bind(this);
-    this.state = { visible: false };
+    this.state = { visible: false, isModalOpen: false };
   }
 
   onVisibilitySensorChange(isVisible) {
@@ -20,8 +20,15 @@ class TimelineEvent extends Component {
 
   editEvent(eventId) {
     API.getEvent(eventId).then(res =>
-      this.setState({ selectedEvent: res }, () => console.log(this.state))
+      this.setState({ selectedEvent: res.data, isModalOpen: true }, () =>
+        console.log(this.state)
+      )
     );
+  }
+
+  closeModal(e) {
+    e.preventDefault();
+    this.setState({ isModalOpen: false });
   }
 
   render() {
@@ -78,6 +85,8 @@ class TimelineEvent extends Component {
                 visible ? 'bounce-in' : 'is-hidden'
               }`}
             >
+              {' '}
+              <h3 className='vertical-timeline-element-title'>{name}</h3>
               <div className='imageBlock'>
                 <img
                   className='responsive eventImg'
@@ -89,13 +98,11 @@ class TimelineEvent extends Component {
                   alt={name}
                 />
               </div>
-              <h3 className='vertical-timeline-element-title'>{name}</h3>
-              {!director ? (
+              {director ? (
                 <h4 className='vertical-timeline-element-subtitle'>
                   Directed by {director}
                 </h4>
               ) : null}
-
               <p>{description}</p>
               <p>
                 {type} at {location}, {concertSeason}

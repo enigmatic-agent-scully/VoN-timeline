@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import API from './../utils/API';
 import VerticalTimeline from './../Components/VerticalTimeline/VerticalTimeline';
-
 import TimelineEvent from './../Components/TimelineEvent/TimelineEvent';
 import NewReleases from '@material-ui/icons/NewReleases';
 import Navbar from './../Components/Navbar/Navbar';
@@ -25,6 +24,12 @@ class MainTimeline extends Component {
       console.log(this.state.eventsArray);
     });
   };
+
+  // loadEventModal = eventID => {
+  //   API.getEvent(eventID)
+  //     .then(res => this.setState({ selectedEvent: res.data }))
+  //     .then(() => console.log(this.state));
+  // };
 
   componentDidMount() {
     this.loadEvents();

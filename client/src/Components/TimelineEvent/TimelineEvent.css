@@ -143,7 +143,7 @@
 .vertical-timeline-element-content {
   position: relative;
   margin-left: 60px;
-  background: white;
+  background-color: lightgray;
   border-radius: 0.25em;
   padding: 1em;
   box-shadow: 0 3px 0 #ddd;
@@ -186,7 +186,6 @@
 .vertical-timeline-element-content .vertical-timeline-element-primaryDate {
   float: left;
   padding: 0.8em 0;
-  opacity: 0.7;
 }
 .vertical-timeline-element-content::before {
   content: '';
@@ -213,7 +212,6 @@
   }
   .vertical-timeline-element-content .vertical-timeline-element-primaryDate {
     font-size: 14px;
-    font-size: 0.875rem;
   }
 }
 @media only screen and (min-width: 1170px) {

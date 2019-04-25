@@ -32,6 +32,10 @@
   width: 200px;
 }
 
+#placeholder {
+  height: 50px;
+}
+
 input#primaryDate,
 input#secondaryDate,
 input#tertiaryDate,

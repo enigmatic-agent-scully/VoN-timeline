@@ -114,7 +114,7 @@ class CreateNew extends Component {
     return (
       <div className='container'>
         <Navbar />
-        <hr />
+        <div id='placeholder' />
         <div className='createNew'>
           <CreateEventForm
             type={this.state.type}
