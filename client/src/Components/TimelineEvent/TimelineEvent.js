@@ -1,34 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import API from './../../utils/API';
+
 import VisibilitySensor from 'react-visibility-sensor';
 
 class TimelineEvent extends Component {
   constructor(props) {
     super(props);
     this.onVisibilitySensorChange = this.onVisibilitySensorChange.bind(this);
-    this.editEvent = this.editEvent.bind(this);
-    this.state = { visible: false, isModalOpen: false };
+    this.state = { visible: false };
   }
 
   onVisibilitySensorChange(isVisible) {
     if (isVisible) {
       this.setState({ visible: true });
     }
-  }
-
-  editEvent(eventId) {
-    API.getEvent(eventId).then(res =>
-      this.setState({ selectedEvent: res.data, isModalOpen: true }, () =>
-        console.log(this.state)
-      )
-    );
-  }
-
-  closeModal(e) {
-    e.preventDefault();
-    this.setState({ isModalOpen: false });
   }
 
   render() {
@@ -40,6 +26,7 @@ class TimelineEvent extends Component {
       iconStyle,
       iconOnClick,
       primaryDate,
+      editEvent,
       position,
       style,
       className,
@@ -112,10 +99,7 @@ class TimelineEvent extends Component {
                 {isLoggedIn ? (
                   <span id='editButton'>
                     ||{' '}
-                    <i
-                      className='material-icons'
-                      onClick={() => this.editEvent(id)}
-                    >
+                    <i className='material-icons' onClick={() => editEvent(id)}>
                       edit
                     </i>
                   </span>

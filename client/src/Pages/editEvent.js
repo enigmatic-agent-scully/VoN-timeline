@@ -14,6 +14,7 @@ const EditEventForm = props => {
               className='pure-input-1-2'
               onChange={props.handleInputChange}
               value={props.type}
+              default={props.type}
             >
               <option value='No Type Specified'>-Select Event Type-</option>
               <option value='Holiday Concert'>Holiday Concert</option>
