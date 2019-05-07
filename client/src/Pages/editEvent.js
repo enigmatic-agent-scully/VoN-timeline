@@ -13,8 +13,7 @@ const EditEventForm = props => {
               name='type'
               className='pure-input-1-2'
               onChange={props.handleInputChange}
-              value={props.type}
-              default={props.type}
+              defaultValue={props.type}
             >
               <option value='No Type Specified'>-Select Event Type-</option>
               <option value='Holiday Concert'>Holiday Concert</option>
@@ -30,7 +29,7 @@ const EditEventForm = props => {
             <label htmlFor='name'>Event Name</label>
             <input
               onChange={props.handleInputChange}
-              value={props.name}
+              defaultValue={props.name}
               name='name'
               id='name'
               type='textarea'
@@ -40,7 +39,7 @@ const EditEventForm = props => {
             <label htmlFor='director'>Artistic Director</label>
             <input
               onChange={props.handleInputChange}
-              value={props.director}
+              defaultValue={props.director}
               id='director'
               name='director'
               type='textarea'
@@ -50,7 +49,7 @@ const EditEventForm = props => {
             <label htmlFor='primaryDate'>Primary Event Date</label>
             <input
               onChange={props.handleInputChange}
-              value={props.primaryDate}
+              defaultValue={props.primaryDate}
               type='date'
               name='primaryDate'
               id='primaryDate'
@@ -61,7 +60,7 @@ const EditEventForm = props => {
             <label htmlFor='secondaryDate'>Secondary Event Date</label>
             <input
               onChange={props.handleInputChange}
-              value={props.secondaryDate}
+              defaultValue={props.secondaryDate}
               type='date'
               name='secondaryDate'
               id='secondaryDate'
@@ -71,7 +70,7 @@ const EditEventForm = props => {
             <label htmlFor='tertiaryDate'>Tertiary Event Date</label>
             <input
               onChange={props.handleInputChange}
-              value={props.tertiaryDate}
+              defaultValue={props.tertiaryDate}
               type='date'
               name='tertiaryDate'
               id='tertiaryDate'
@@ -81,7 +80,7 @@ const EditEventForm = props => {
             <label htmlFor='location'>Location</label>
             <input
               onChange={props.handleInputChange}
-              value={props.location}
+              defaultValue={props.location}
               id='location'
               name='location'
               type='textarea'
@@ -92,7 +91,7 @@ const EditEventForm = props => {
             <label htmlFor='concertSeason'>Concert Season</label>
             <input
               onChange={props.handleInputChange}
-              value={props.concertSeason}
+              defaultValue={props.concertSeason}
               id='concertSeason'
               name='concertSeason'
               type='textarea'
@@ -102,7 +101,7 @@ const EditEventForm = props => {
             <label htmlFor='description'>Event Description</label>
             <input
               onChange={props.handleInputChange}
-              value={props.description}
+              defaultValue={props.description}
               id='description'
               name='description'
               type='textarea'
@@ -115,13 +114,14 @@ const EditEventForm = props => {
               onChange={props.handleUpload}
               id='imageURL'
               type='file'
-              required
+              defaultValue={props.imgURL}
             />
           </div>
           <button
-            onClick={props.handleSubmit}
+            onClick={() => props.handleEditSubmit()}
             type='submit'
-            className='pure-button pure-button-primary'
+            value={props.id}
+            className='pure-button pure-button-primary close-modal-btn'
           >
             Submit
           </button>

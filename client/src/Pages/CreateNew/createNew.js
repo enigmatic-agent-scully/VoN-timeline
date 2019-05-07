@@ -70,6 +70,7 @@ class CreateNew extends Component {
       primaryDate: primeDateFormatted
     });
   }
+
   handleInputChange(event) {
     const name = event.target.name;
     let value = event.target.value;

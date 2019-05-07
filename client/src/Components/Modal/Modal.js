@@ -16,10 +16,13 @@ const Modal = props => {
       >
         <div className='modal-content'>
           <div className='modal-header'>
-            <h3>Now Editing {props.name}</h3>
+            <h3>Now Editing {props.selectedEvent.name}</h3>
           </div>
-          <div className='modal-content'>
-            <EditEventForm {...props.selectedEvent} />
+          <div className='modal-body'>
+            <EditEventForm
+              {...props.selectedEvent}
+              closeModal={props.closeModal}
+            />
           </div>
         </div>
       </div>
