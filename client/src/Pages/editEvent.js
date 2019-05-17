@@ -118,7 +118,7 @@ const EditEventForm = props => {
             />
           </div>
           <button
-            onClick={() => props.handleEditSubmit()}
+            onClick={props.handleEditSubmit}
             type='submit'
             value={props.id}
             className='pure-button pure-button-primary close-modal-btn'

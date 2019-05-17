@@ -26,7 +26,7 @@ class TimelineEvent extends Component {
       iconStyle,
       iconOnClick,
       primaryDate,
-      editEvent,
+      loadEventModal,
       position,
       style,
       className,
@@ -99,7 +99,10 @@ class TimelineEvent extends Component {
                 {isLoggedIn ? (
                   <span id='editButton'>
                     ||{' '}
-                    <i className='material-icons' onClick={() => editEvent(id)}>
+                    <i
+                      className='material-icons'
+                      onClick={() => loadEventModal(id)}
+                    >
                       edit
                     </i>
                   </span>

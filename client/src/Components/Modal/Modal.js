@@ -9,8 +9,8 @@ const Modal = props => {
         className='modal-wrapper'
         style={{
           transform: props.isModalOpen
-            ? 'translateY(0vh)'
-            : 'translateY(-100vh)',
+            ? 'translateY(-110vh)'
+            : 'translateY(0vh)',
           opacity: props.isModalOpen ? '1' : '0'
         }}
       >
@@ -21,7 +21,8 @@ const Modal = props => {
           <div className='modal-body'>
             <EditEventForm
               {...props.selectedEvent}
-              closeModal={props.closeModal}
+              handleInputChange={props.handleInputChange}
+              handleEditSubmit={props.handleEditSubmit}
             />
           </div>
         </div>

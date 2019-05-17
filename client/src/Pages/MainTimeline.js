@@ -38,7 +38,7 @@ class MainTimeline extends Component {
     };
 
     this.loadEvents = this.loadEvents.bind(this);
-    this.editEvent = this.editEvent.bind(this);
+    this.loadEventModal = this.loadEventModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleEditSumbit = this.handleEditSumbit.bind(this);
@@ -75,6 +75,7 @@ class MainTimeline extends Component {
   handleInputChange(event) {
     const name = event.target.name;
     let value = event.target.value;
+    console.log(value);
     this.setState({
       selectedEvent: {
         [name]: value
@@ -82,7 +83,7 @@ class MainTimeline extends Component {
     });
   }
 
-  editEvent(eventId) {
+  loadEventModal(eventId) {
     console.log(eventId);
     API.getEvent(eventId).then(res =>
       this.setState({ selectedEvent: res.data, isModalOpen: true }, () =>
@@ -92,6 +93,7 @@ class MainTimeline extends Component {
   }
 
   handleEditSumbit(event) {
+    event.preventDefault();
     const id = event.target.value;
     const editedEvent = this.state.selectedEvent;
     API.editEvent(id, {
@@ -105,8 +107,7 @@ class MainTimeline extends Component {
       concertSeason: editedEvent.concertSeason,
       description: editedEvent.description,
       imgURL: editedEvent.imgURL
-    });
-    event.preventDefault();
+    }).then(() => this.closeModal());
   }
 
   closeModal() {
@@ -136,18 +137,18 @@ class MainTimeline extends Component {
               imgURL={event.imgURL}
               key={event._id}
               id={event._id}
-              editEvent={this.editEvent}
+              loadEventModal={this.loadEventModal}
             />
           ))}
-        </VerticalTimeline>
-        <Modal
-          selectedEvent={this.state.selectedEvent}
-          closeModal={this.closeModal}
-          isModalOpen={this.state.isModalOpen}
-          handleInputChange={this.handleInputChange}
-          handleEditSumbit={this.handleEditSumbit}
-          handleUpload={this.handleUpload}
-        />{' '}
+          <Modal
+            selectedEvent={this.state.selectedEvent}
+            closeModal={this.closeModal}
+            isModalOpen={this.state.isModalOpen}
+            handleInputChange={this.handleInputChange}
+            handleEditSumbit={this.handleEditSumbit}
+            handleUpload={this.handleUpload}
+          />
+        </VerticalTimeline>{' '}
       </div>
     );
   }
