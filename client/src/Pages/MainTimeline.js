@@ -43,6 +43,11 @@ class MainTimeline extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleEditSumbit = this.handleEditSumbit.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+    this.deleteEvent = this.deleteEvent.bind(this);
+  }
+
+  componentDidMount() {
+    this.loadEvents();
   }
 
   loadEvents = () => {
@@ -61,15 +66,6 @@ class MainTimeline extends Component {
         this.setState({ imgURL: data.location });
       })
       .catch(err => console.log(err));
-  }
-  // loadEventModal = eventID => {
-  //   API.getEvent(eventID)
-  //     .then(res => this.setState({ selectedEvent: res.data }))
-  //     .then(() => console.log(this.state));
-  // };
-
-  componentDidMount() {
-    this.loadEvents();
   }
 
   handleInputChange(event) {
@@ -90,6 +86,10 @@ class MainTimeline extends Component {
         console.log(this.state)
       )
     );
+  }
+
+  deleteEvent(eventId) {
+    API.deleteEvent(eventId).then(this.loadEvents());
   }
 
   handleEditSumbit(event) {
@@ -138,6 +138,7 @@ class MainTimeline extends Component {
               key={event._id}
               id={event._id}
               loadEventModal={this.loadEventModal}
+              deleteEvent={this.deleteEvent}
             />
           ))}
           <Modal

@@ -34,6 +34,7 @@ class TimelineEvent extends Component {
       type,
       name,
       director,
+      deleteEvent,
       location,
       concertSeason,
       description,
@@ -97,14 +98,25 @@ class TimelineEvent extends Component {
               <span className='vertical-timeline-element-primaryDate'>
                 {primaryDate}{' '}
                 {isLoggedIn ? (
-                  <span id='editButton'>
-                    ||{' '}
-                    <i
-                      className='material-icons'
-                      onClick={() => loadEventModal(id)}
-                    >
-                      edit
-                    </i>
+                  <span>
+                    <span id='editButton'>
+                      ||{' '}
+                      <i
+                        className='material-icons'
+                        onClick={() => loadEventModal(id)}
+                      >
+                        edit
+                      </i>
+                    </span>
+                    <span id='deleteButton'>
+                      ||{' '}
+                      <i
+                        className='material-icons'
+                        onClick={() => deleteEvent(id)}
+                      >
+                        delete
+                      </i>
+                    </span>
                   </span>
                 ) : null}
               </span>

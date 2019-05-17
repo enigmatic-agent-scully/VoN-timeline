@@ -24,8 +24,7 @@ const EventController = {
       .catch(err => res.status(422).json(err));
   },
   updateEvent: (req, res) => {
-    console.log(req.body);
-    db.Event.findOneAndUpdate({ _id: req.params._id }, req.body)
+    db.Event.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
