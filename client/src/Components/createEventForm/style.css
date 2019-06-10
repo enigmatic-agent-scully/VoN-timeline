@@ -43,3 +43,7 @@ select#type {
   padding: 3px 5px;
   margin-right: 0px !important;
 }
+
+.submit-button {
+  float: inline-end;
+}

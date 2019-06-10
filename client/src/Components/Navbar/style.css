@@ -3,6 +3,10 @@
   font-size: 24px;
 }
 
+.VoN-Nav {
+  height: 160px;
+}
+
 .logo-div img.pure-img {
   padding: 40px 20px;
 }
@@ -119,5 +123,9 @@
     text-align: center !important;
     float: none;
     margin-top: 0px !important;
+  }
+
+  .VoN-Nav {
+    height: 210px;
   }
 }

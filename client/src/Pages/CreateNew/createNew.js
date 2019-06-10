@@ -4,6 +4,7 @@ import CreateEventForm from '../../Components/createEventForm/createEventForm';
 import { uploadFile } from 'react-s3';
 import config from '../../config/awsS3config';
 import Navbar from './../../Components/Navbar/Navbar';
+import './style.css';
 var moment = require('moment');
 
 class CreateNew extends Component {

@@ -5,7 +5,7 @@ const CreateEventForm = props => {
   return (
     <div className='pure-g createEventForm'>
       <form className='pure-form pure-form-aligned'>
-        <fieldset>
+        <fieldset id='create-new-form'>
           <div className='pure-control-group'>
             <label htmlFor='type'>Type of Event</label>
             <select
@@ -118,14 +118,14 @@ const CreateEventForm = props => {
               required
             />
           </div>
-          <button
-            onClick={props.handleSubmit}
-            type='submit'
-            className='pure-button pure-button-primary'
-          >
-            Submit
-          </button>
         </fieldset>
+        <button
+          onClick={props.handleSubmit}
+          type='submit'
+          className='pure-button pure-button-primary submit-button'
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
